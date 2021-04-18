@@ -283,11 +283,6 @@
     </link>
   <!--Extensions -->
   <!-- Load Gazebo lib and set the robot namespace -->
-  <gazebo>
-    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_controller">
-      <robotNamespace>/iiwa</robotNamespace>
-    </plugin>
-  </gazebo>
   <!-- Link0 -->
   <gazebo reference="iiwa_link_0">
     <material>Gazebo/Grey</material>

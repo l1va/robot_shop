@@ -1,7 +1,11 @@
 # robot_shop
-Set of models and their descriptions in different formats
+Set of models and their descriptions in different formats. Plus scripts to convert and collect the world.  
 
 #Collect your world without pain!
+No ROS required!
+
+## Run
+```gazebo result.world```
 
 ## Environment configuration
 By default gazebo searches for the models in ~/.gazebo/models folder. 
@@ -22,3 +26,23 @@ To check gazebo variables:
 
 ## urdf2sdf
 ```$ gz sdf -p robot.urdf > robot.sdf```
+
+### TODO:
+- more robots and examples
+- support different versions
+
+## issues:
+- if urdf has ros plugin it successfully converts to sdf and gazebo will fail to run  
+
+## foundations:
+black screen in gazebo means model not found ( check path to model )
+no robot - check uri in sdf (meshes not found)
+
+## robot descriptions and ideas
+
+http://sachinchitta.github.io/urdf2/
+http://sdformat.org/
+https://github.com/rock-simulation/smurf_parser
+http://wiki.ros.org/srdf
+http://library.isr.ist.utl.pt/docs/roswiki/srdf.html
+https://docs.nvidia.com/isaac/isaac_sim/plugins/robot_builder/urdf.html
