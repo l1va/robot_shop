@@ -9,8 +9,9 @@ No ROS required!
 
 ## Environment configuration
 By default gazebo searches for the models in ~/.gazebo/models folder. 
-You can add the path to models by (for example):  
-```$ export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:$(pwd)/manipulators```
+You can add the path to custom models directory (for example to the root of this project 
+if you stay there in terminal):  
+```$ export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:$(pwd)```
 
 To check gazebo variables:  
 ```printenv | grep GAZEBO```
@@ -33,6 +34,8 @@ To check gazebo variables:
 
 ## issues:
 - if urdf has ros plugin it successfully converts to sdf and gazebo will fail to run  
+- seems gazebo searches only in default models if you include by one level: models://robot_model . 
+  But include from custom directory is working if you specify two levels:  models://subfolder/robot_model
 
 ## foundations:
 black screen in gazebo means model not found ( check path to model )

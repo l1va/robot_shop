@@ -1,15 +1,22 @@
 <sdf version="1.6">
-    <world name="default">
-        <include>
-            <uri>model://ground_plane</uri>
-        </include>
-
-        <include>
-            <uri>model://sun</uri>
-        </include>
-
-
-        <include><uri>model://manipulators/iiwa14</uri></include>
-
-    </world>
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://manipulators/iiwa14</uri>
+      <pose>0.00 0.00 0.00 0.00 0.00 0.00</pose>
+    </include>
+    <include>
+      <uri>model://manipulators/iiwa14</uri>
+      <pose>1.00 1.00 0.00 0.00 0.00 0.00</pose>
+    </include>
+    <include>
+      <uri>model://manipulators/iiwa14</uri>
+      <pose>2.00 0.00 0.00 0.00 0.00 0.00</pose>
+    </include>
+  </world>
 </sdf>
