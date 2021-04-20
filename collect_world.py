@@ -9,7 +9,9 @@ class World:
         self.root = self.tree.getroot()  # sdf tag
         self.world = self.root[0]
 
-    def include_model(self, model, pose=None):
+    def include_model(self, model, name=None, pose=None):
+        if name is None:
+            name = model
         if pose is None:
             pose = [0, 0, 0, 0, 0, 0]
         incl = ET.SubElement(self.world, 'include')
@@ -17,6 +19,8 @@ class World:
         uri.text = "model://" + model
         pose_tag = ET.SubElement(incl, 'pose')
         pose_tag.text = " ".join("{0:0.2f}".format(i) for i in pose)
+        name_tag = ET.SubElement(incl, 'name')
+        name_tag.text = name
 
     def generate(self, result_path):
         ET.indent(self.root)

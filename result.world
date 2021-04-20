@@ -9,14 +9,17 @@
     <include>
       <uri>model://iiwa14</uri>
       <pose>0.00 0.00 0.00 0.00 0.00 0.00</pose>
+      <name>iiwa14</name>
     </include>
     <include>
       <uri>model://atlas5</uri>
       <pose>1.00 1.00 1.00 0.00 0.00 0.00</pose>
+      <name>atlas5</name>
     </include>
     <include>
       <uri>model://iiwa14</uri>
       <pose>2.00 0.00 0.00 0.00 0.00 0.00</pose>
+      <name>iiwa14_2</name>
     </include>
   </world>
 </sdf>
