@@ -1,0 +1,1562 @@
+<sdf version="1.6">
+  <model name="drc_skeleton">
+    <link name="pelvis">
+      <pose frame="">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.0111 0 0.0271 0 -0 0</pose>
+        <mass>17.882</mass>
+        <inertia>
+          <ixx>0.1244</ixx>
+          <ixy>0.0008</ixy>
+          <ixz>-0.0007</ixz>
+          <iyy>0.0958</iyy>
+          <iyz>-0.0005</iyz>
+          <izz>0.1167</izz>
+        </inertia>
+      </inertial>
+      <collision name="pelvis_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/pelvis.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="pelvis_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/pelvis.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="ltorso">
+      <pose frame="">-0.0125 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame="">-0.011298 -3e-06 0.074684 0 -0 0</pose>
+        <mass>2.409</mass>
+        <inertia>
+          <ixx>0.0039092</ixx>
+          <ixy>-5.04491e-08</ixy>
+          <ixz>-0.000342157</ixz>
+          <iyy>0.00341694</iyy>
+          <iyz>4.87119e-07</iyz>
+          <izz>0.00174492</izz>
+        </inertia>
+      </inertial>
+      <collision name="ltorso_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/ltorso.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="ltorso_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/ltorso.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="back_bkz" type="revolute">
+      <child>ltorso</child>
+      <parent>pelvis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.663225</lower>
+          <upper>0.663225</upper>
+          <effort>106</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="mtorso">
+      <pose frame="">-0.0125 0 0.162 0 -0 0</pose>
+      <inertial>
+        <pose frame="">-0.008163 -0.013125 0.030597 0 -0 0</pose>
+        <mass>0.69</mass>
+        <inertia>
+          <ixx>0.000454181</ixx>
+          <ixy>-6.10764e-05</ixy>
+          <ixz>3.94009e-05</ixz>
+          <iyy>0.000483282</iyy>
+          <iyz>5.27463e-05</iyz>
+          <izz>0.000444215</izz>
+        </inertia>
+      </inertial>
+      <collision name="mtorso_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/mtorso.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="mtorso_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/mtorso.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="back_bky" type="revolute">
+      <child>mtorso</child>
+      <parent>ltorso</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.219388</lower>
+          <upper>0.538783</upper>
+          <effort>445</effort>
+          <velocity>9</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="utorso">
+      <pose frame="">-0.0125 0 0.212 0 -0 0</pose>
+      <inertial>
+        <pose frame="">-0.057156 4.1e-05 0.306477 0 -0 0</pose>
+        <mass>64.03</mass>
+        <inertia>
+          <ixx>1.48397</ixx>
+          <ixy>0.00347597</ixy>
+          <ixz>0.328505</ixz>
+          <iyy>1.54026</iyy>
+          <iyz>5.37636e-05</iyz>
+          <izz>1.31839</izz>
+        </inertia>
+      </inertial>
+      <collision name="utorso_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/utorso.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="utorso_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/utorso.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="utorso_fixed_joint_lump__l_situational_awareness_camera_link_visual_1">
+        <pose frame="">0.216409 0.121799 0.406759 -1.5708 0 1.309</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name="utorso_fixed_joint_lump__r_situational_awareness_camera_link_visual_2">
+        <pose frame="">0.216409 -0.121799 0.406759 1.5708 0 -1.309</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name="utorso_fixed_joint_lump__rear_situational_awareness_camera_link_visual_3">
+        <pose frame="">-0.0026 0.0264 0.6649 0 -0 3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="back_bkx" type="revolute">
+      <child>utorso</child>
+      <parent>mtorso</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+          <effort>300</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_clav">
+      <pose frame="">0.1281 0.2256 0.6896 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0.048 -0.084 0 -0 0</pose>
+        <mass>3.45</mass>
+        <inertia>
+          <ixx>0.011</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.009</iyy>
+          <iyz>-0.004</iyz>
+          <izz>0.004</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_clav_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_clav.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_clav_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_clav.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_arm_shz" type="revolute">
+      <child>l_clav</child>
+      <parent>utorso</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>0.785398</upper>
+          <effort>87</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_scap">
+      <pose frame="">0.1281 0.3356 0.4446 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <mass>3.012</mass>
+        <inertia>
+          <ixx>0.00319</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00583</iyy>
+          <iyz>0</iyz>
+          <izz>0.00583</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_scap_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_scap.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_scap_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_scap.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_arm_shx" type="revolute">
+      <child>l_scap</child>
+      <parent>l_clav</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>99</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_uarm">
+      <pose frame="">0.1281 0.5226 0.4286 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 -0.065 0 0 -0 0</pose>
+        <mass>3.388</mass>
+        <inertia>
+          <ixx>0.00656</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00358</iyy>
+          <iyz>0</iyz>
+          <izz>0.00656</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_uarm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_uarm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_uarm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_uarm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_arm_ely" type="revolute">
+      <child>l_uarm</child>
+      <parent>l_scap</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.14159</upper>
+          <effort>63</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_larm">
+      <pose frame="">0.1281 0.6416 0.4378 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <mass>2.509</mass>
+        <inertia>
+          <ixx>0.00265</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00446</iyy>
+          <iyz>0</iyz>
+          <izz>0.00446</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_larm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_larm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_larm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_larm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_arm_elx" type="revolute">
+      <child>l_larm</child>
+      <parent>l_uarm</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.35619</upper>
+          <effort>112</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_ufarm">
+      <pose frame="">0.1281 0.94115 0.42859 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 -0.2 0 0 -0 0</pose>
+        <mass>2.12</mass>
+        <inertia>
+          <ixx>0.006</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.003</iyy>
+          <iyz>0</iyz>
+          <izz>0.006</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_ufarm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_farm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_ufarm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_farm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_arm_wry" type="revolute">
+      <child>l_ufarm</child>
+      <parent>l_larm</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.011</lower>
+          <upper>3.011</upper>
+          <effort>25</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_lfarm">
+      <pose frame="">0.1281 0.94115 0.42859 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 -0.07 0 0 -0 0</pose>
+        <mass>2.65</mass>
+        <inertia>
+          <ixx>0.007</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.004</iyy>
+          <iyz>0</iyz>
+          <izz>0.007</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_lfarm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_hand.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_lfarm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_hand.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_arm_wrx" type="revolute">
+      <child>l_lfarm</child>
+      <parent>l_ufarm</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.7628</lower>
+          <upper>1.7628</upper>
+          <effort>25</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_hand">
+      <pose frame="">0.1281 0.94115 0.42859 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0.06 0 0 -0 0</pose>
+        <mass>0.53</mass>
+        <inertia>
+          <ixx>0.00265</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00446</iyy>
+          <iyz>0</iyz>
+          <izz>0.00446</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="l_arm_wry2" type="revolute">
+      <child>l_hand</child>
+      <parent>l_lfarm</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-2.9671</lower>
+          <upper>2.9671</upper>
+          <effort>25</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_clav">
+      <pose frame="">0.1281 -0.2256 0.6896 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 -0.048 -0.084 0 -0 0</pose>
+        <mass>3.45</mass>
+        <inertia>
+          <ixx>0.011</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.009</iyy>
+          <iyz>0.004</iyz>
+          <izz>0.004</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_clav_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_clav.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_clav_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_clav.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_arm_shz" type="revolute">
+      <child>r_clav</child>
+      <parent>utorso</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.785398</lower>
+          <upper>1.5708</upper>
+          <effort>87</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_scap">
+      <pose frame="">0.1281 -0.3356 0.4446 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <mass>3.012</mass>
+        <inertia>
+          <ixx>0.00319</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00583</iyy>
+          <iyz>0</iyz>
+          <izz>0.00583</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_scap_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_scap.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_scap_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_scap.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_arm_shx" type="revolute">
+      <child>r_scap</child>
+      <parent>r_clav</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>99</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_uarm">
+      <pose frame="">0.1281 -0.5226 0.4286 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0.065 0 0 -0 0</pose>
+        <mass>3.388</mass>
+        <inertia>
+          <ixx>0.00656</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00358</iyy>
+          <iyz>0</iyz>
+          <izz>0.00656</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_uarm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_uarm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_uarm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_uarm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_arm_ely" type="revolute">
+      <child>r_uarm</child>
+      <parent>r_scap</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.14159</upper>
+          <effort>63</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_larm">
+      <pose frame="">0.1281 -0.6416 0.4378 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <mass>2.509</mass>
+        <inertia>
+          <ixx>0.00265</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00446</iyy>
+          <iyz>0</iyz>
+          <izz>0.00446</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_larm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_larm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_larm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_larm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_arm_elx" type="revolute">
+      <child>r_larm</child>
+      <parent>r_uarm</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-2.35619</lower>
+          <upper>0</upper>
+          <effort>112</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_ufarm">
+      <pose frame="">0.1281 -0.94115 0.42859 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0.2 0 0 -0 0</pose>
+        <mass>2.12</mass>
+        <inertia>
+          <ixx>0.006</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.003</iyy>
+          <iyz>0</iyz>
+          <izz>0.006</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_ufarm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_farm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_ufarm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_farm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_arm_wry" type="revolute">
+      <child>r_ufarm</child>
+      <parent>r_larm</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.011</lower>
+          <upper>3.011</upper>
+          <effort>25</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_lfarm">
+      <pose frame="">0.1281 -0.94115 0.42859 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0.07 0 0 -0 0</pose>
+        <mass>2.65</mass>
+        <inertia>
+          <ixx>0.007</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.004</iyy>
+          <iyz>0</iyz>
+          <izz>0.007</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_lfarm_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_hand.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_lfarm_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_hand.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_arm_wrx" type="revolute">
+      <child>r_lfarm</child>
+      <parent>r_ufarm</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.7628</lower>
+          <upper>1.7628</upper>
+          <effort>25</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_hand">
+      <pose frame="">0.1281 -0.94115 0.42859 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 -0.06 0 0 -0 0</pose>
+        <mass>0.53</mass>
+        <inertia>
+          <ixx>0.00265</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00446</iyy>
+          <iyz>0</iyz>
+          <izz>0.00446</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="r_arm_wry2" type="revolute">
+      <child>r_hand</child>
+      <parent>r_lfarm</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-2.9671</lower>
+          <upper>2.9671</upper>
+          <effort>25</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_uglut">
+      <pose frame="">0 0.089 0 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.005293 -0.003447 0.00313 0 -0 0</pose>
+        <mass>0.648</mass>
+        <inertia>
+          <ixx>0.00074276</ixx>
+          <ixy>-3.79607e-08</ixy>
+          <ixz>-2.79549e-05</ixz>
+          <iyy>0.000688179</iyy>
+          <iyz>-3.2735e-08</iyz>
+          <izz>0.00041242</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_uglut_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_uglut.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_uglut_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_uglut.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_leg_hpz" type="revolute">
+      <child>l_uglut</child>
+      <parent>pelvis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.174358</lower>
+          <upper>0.786794</upper>
+          <effort>275</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_lglut">
+      <pose frame="">0 0.089 0 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.013334 0.017048 -0.031205 0 -0 0</pose>
+        <mass>0.866</mass>
+        <inertia>
+          <ixx>0.000691326</ixx>
+          <ixy>-2.24344e-05</ixy>
+          <ixz>2.50508e-06</ixz>
+          <iyy>0.00126856</iyy>
+          <iyz>0.000137862</iyz>
+          <izz>0.00106487</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_lglut_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_lglut.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_lglut_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_lglut.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_leg_hpx" type="revolute">
+      <child>l_lglut</child>
+      <parent>l_uglut</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+          <effort>530</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_uleg">
+      <pose frame="">0.05 0.1115 -0.066 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 -0.21 0 -0 0</pose>
+        <mass>9.209</mass>
+        <inertia>
+          <ixx>0.09</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.09</iyy>
+          <iyz>0</iyz>
+          <izz>0.02</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_uleg_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_uleg.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_uleg_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_uleg.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_leg_hpy" type="revolute">
+      <child>l_uleg</child>
+      <parent>l_lglut</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.61234</lower>
+          <upper>0.65764</upper>
+          <effort>840</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_lleg">
+      <pose frame="">0 0.1115 -0.44 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.001 0 -0.187 0 -0 0</pose>
+        <mass>5.479</mass>
+        <inertia>
+          <ixx>0.077</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.003</ixz>
+          <iyy>0.076</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_lleg_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_lleg.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_lleg_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_lleg.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_leg_kny" type="revolute">
+      <child>l_lleg</child>
+      <parent>l_uleg</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.35637</upper>
+          <effort>890</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_talus">
+      <pose frame="">0 0.1115 -0.862 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <mass>0.125</mass>
+        <inertia>
+          <ixx>1.01674e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>8.42775e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.30101e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_talus_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_talus.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_talus_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_talus.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_leg_aky" type="revolute">
+      <child>l_talus</child>
+      <parent>l_lleg</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>0.7</upper>
+          <effort>740</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="l_foot">
+      <pose frame="">0 0.1115 -0.862 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.027 0 -0.067 0 -0 0</pose>
+        <mass>2.05</mass>
+        <inertia>
+          <ixx>0.002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.007</iyy>
+          <iyz>0</iyz>
+          <izz>0.008</izz>
+        </inertia>
+      </inertial>
+      <collision name="l_foot_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_foot.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="l_foot_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/l_foot.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="l_leg_akx" type="revolute">
+      <child>l_foot</child>
+      <parent>l_talus</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.8</lower>
+          <upper>0.8</upper>
+          <effort>360</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_uglut">
+      <pose frame="">0 -0.089 0 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.005293 0.003447 0.00313 0 -0 0</pose>
+        <mass>0.648</mass>
+        <inertia>
+          <ixx>0.00074276</ixx>
+          <ixy>3.79607e-08</ixy>
+          <ixz>-2.79549e-05</ixz>
+          <iyy>0.000688179</iyy>
+          <iyz>3.2735e-08</iyz>
+          <izz>0.00041242</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_uglut_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_uglut.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_uglut_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_uglut.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_leg_hpz" type="revolute">
+      <child>r_uglut</child>
+      <parent>pelvis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.786794</lower>
+          <upper>0.174358</upper>
+          <effort>275</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_lglut">
+      <pose frame="">0 -0.089 0 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.013334 -0.017048 -0.031205 0 -0 0</pose>
+        <mass>0.866</mass>
+        <inertia>
+          <ixx>0.000691326</ixx>
+          <ixy>2.24344e-05</ixy>
+          <ixz>2.50508e-06</ixz>
+          <iyy>0.00126856</iyy>
+          <iyz>-0.000137862</iyz>
+          <izz>0.00106487</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_lglut_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_lglut.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_lglut_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_lglut.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_leg_hpx" type="revolute">
+      <child>r_lglut</child>
+      <parent>r_uglut</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+          <effort>530</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_uleg">
+      <pose frame="">0.05 -0.1115 -0.066 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 -0.21 0 -0 0</pose>
+        <mass>9.209</mass>
+        <inertia>
+          <ixx>0.09</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.09</iyy>
+          <iyz>0</iyz>
+          <izz>0.02</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_uleg_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_uleg.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_uleg_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_uleg.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_leg_hpy" type="revolute">
+      <child>r_uleg</child>
+      <parent>r_lglut</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.61234</lower>
+          <upper>0.65764</upper>
+          <effort>840</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_lleg">
+      <pose frame="">0 -0.1115 -0.44 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.001 0 -0.187 0 -0 0</pose>
+        <mass>5.479</mass>
+        <inertia>
+          <ixx>0.077</ixx>
+          <ixy>-0</ixy>
+          <ixz>-0.003</ixz>
+          <iyy>0.076</iyy>
+          <iyz>-0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_lleg_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_lleg.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_lleg_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_lleg.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_leg_kny" type="revolute">
+      <child>r_lleg</child>
+      <parent>r_uleg</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.35637</upper>
+          <effort>890</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_talus">
+      <pose frame="">0 -0.1115 -0.862 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <mass>0.125</mass>
+        <inertia>
+          <ixx>1.01674e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>8.42775e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.30101e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_talus_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_talus.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_talus_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_talus.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_leg_aky" type="revolute">
+      <child>r_talus</child>
+      <parent>r_lleg</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>0.7</upper>
+          <effort>740</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="r_foot">
+      <pose frame="">0 -0.1115 -0.862 0 -0 0</pose>
+      <inertial>
+        <pose frame="">0.027 0 -0.067 0 -0 0</pose>
+        <mass>2.05</mass>
+        <inertia>
+          <ixx>0.002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.007</iyy>
+          <iyz>0</iyz>
+          <izz>0.008</izz>
+        </inertia>
+      </inertial>
+      <collision name="r_foot_collision">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_foot.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="r_foot_visual">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://atlas5/meshes/r_foot.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="r_leg_akx" type="revolute">
+      <child>r_foot</child>
+      <parent>r_talus</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.8</lower>
+          <upper>0.8</upper>
+          <effort>360</effort>
+          <velocity>12</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>

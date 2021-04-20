@@ -36,14 +36,20 @@ def urdf2model(urdf):
     root = tree.getroot()  # sdf
     for m in root.iter("mesh"):
         uri = m.find("uri")
-        if uri is None or uri.text.startswith("model://"):
+        if uri is None or uri.text.startswith("model://") or uri.text.startswith("file://"):
             pass
         else:
-            uri.text = "model://" + model_name + "/" + uri.text
+            res = uri.text
+            if res.startswith("./"):
+                res = res[2:]
+            if res.endswith("obj"): #dirty hack
+                res = res[:-3]+"dae"
+            uri.text = "model://" + model_name + "/" + res
 
     res = ET.tostring(root)
     resfile = open(sdf_path, "wb")
     resfile.write(res)
 
-
+# examples:
+urdf2model("walking/atlas5/atlas_v5.urdf")
 urdf2model("manipulators/iiwa14/iiwa14.urdf")
