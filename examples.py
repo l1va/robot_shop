@@ -15,4 +15,4 @@ def example_urdf2model():
 
 
 # example_urdf2model()
-example_world()
+#example_world()

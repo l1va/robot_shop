@@ -1,7 +1,8 @@
 import os
+import sys
 
 
-def urdf2model(urdf):
+def urdf2model(urdf, obj2dae=False):
     # example urdf = "manipulators/iiwa14/iiwa14_model.urdf"
     pth = os.path.dirname(urdf)
     model_name = os.path.basename(pth)  # iiwa14 like directory!
@@ -42,14 +43,22 @@ def urdf2model(urdf):
             res = uri.text
             if res.startswith("./"):
                 res = res[2:]
-            if res.endswith("obj"): #dirty hack
-                res = res[:-3]+"dae"
+            if res.endswith("obj") and obj2dae:  # dirty hack
+                res = res[:-3] + "dae"
             uri.text = "model://" + model_name + "/" + res
 
     res = ET.tostring(root)
     resfile = open(sdf_path, "wb")
     resfile.write(res)
+    print("done")
+
+
+if __name__ == "__main__":
+    obj2dae = False
+    if len(sys.argv) > 2:
+        obj2dae = sys.argv[2] == 'True'
+    urdf2model(sys.argv[1], obj2dae)
 
 # examples:
-urdf2model("walking/atlas5/atlas_v5.urdf")
-urdf2model("manipulators/iiwa14/iiwa14.urdf")
+# urdf2model("walking/atlas5/atlas_v5.urdf")
+# urdf2model("manipulators/iiwa14/iiwa14.urdf")

@@ -21,16 +21,16 @@ To check gazebo variables:
 ```printenv | grep GAZEBO```
 
 ## urdf to gazebo model
-```python3 urdf2model ```
+```python urdf2model.py walking/atlas5/atlas_v5.urdf ```
 
 ## xacro to urdf
-```$ xacro robot.xacro > robot.urdf ```
+```xacro robot.xacro > robot.urdf ```
 
 ## check urdf on correctness
-```$ check_urdf your_parallel_robot.urdf```
+```check_urdf your_parallel_robot.urdf```
 
 ## urdf2sdf
-```$ gz sdf -p robot.urdf > robot.sdf```
+```gz sdf -p robot.urdf > robot.sdf```
 
 ### TODO:
 - more robots and examples
