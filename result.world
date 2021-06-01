@@ -17,6 +17,16 @@
       <name>atlas5</name>
     </include>
     <include>
+      <uri>model://atlas5</uri>
+      <pose>3.00 3.00 3.00 0.00 0.00 0.00</pose>
+      <name>atlas5_2</name>
+    </include>
+    <include>
+      <uri>model://a1</uri>
+      <pose>2.00 2.00 2.00 0.00 0.00 0.00</pose>
+      <name>a1</name>
+    </include>
+    <include>
       <uri>model://iiwa14</uri>
       <pose>2.00 0.00 0.00 0.00 0.00 0.00</pose>
       <name>iiwa14_2</name>
