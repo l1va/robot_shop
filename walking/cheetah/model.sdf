@@ -1,3 +1,711 @@
 <sdf version="1.7">
-  <model name="cheetah" />
+  <model name="cheetah">
+    <link name="trunk">
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>3.3</mass>
+        <inertia>
+          <ixx>0.011253</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.036203</iyy>
+          <iyz>0</iyz>
+          <izz>0.042673</izz>
+        </inertia>
+      </inertial>
+      <collision name="trunk_collision">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 0.2 0.093</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="trunk_visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/trunk.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="FL_hip_joint" type="revolute">
+      <pose relative_to="trunk">0.196 0.049664 0 -3.14159 0 -3.14159</pose>
+      <parent>trunk</parent>
+      <child>FL_hip</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.872665</lower>
+          <upper>1.0472</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="FL_hip">
+      <pose relative_to="FL_hip_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 -0.036 0 0 -0 0</pose>
+        <mass>0.57</mass>
+        <inertia>
+          <ixx>0.000714827</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000795577</iyy>
+          <iyz>0</iyz>
+          <izz>0.00068875</izz>
+        </inertia>
+      </inertial>
+      <collision name="FL_hip_collision">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.09 0.08 0.093</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="FL_hip_visual">
+        <pose>0 0 0 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/hip.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="FL_thigh_joint" type="revolute">
+      <pose relative_to="FL_hip">0 0.077476 0 -3.14159 0 0</pose>
+      <parent>FL_hip</parent>
+      <child>FL_thigh</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>3.92699</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="FL_thigh">
+      <pose relative_to="FL_thigh_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 -0.016 -0.11 0 -0 0</pose>
+        <mass>0.634</mass>
+        <inertia>
+          <ixx>0.00261821</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00265482</iyy>
+          <iyz>0</iyz>
+          <izz>0.000158764</izz>
+        </inertia>
+      </inertial>
+      <collision name="FL_thigh_collision">
+        <pose>0 0 -0.11 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.043 0.034 0.22</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="FL_thigh_visual">
+        <pose>0 0 0 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/thigh.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="FL_calf_joint" type="revolute">
+      <pose relative_to="FL_thigh">0 0.009 -0.2115 0 -0 0</pose>
+      <parent>FL_thigh</parent>
+      <child>FL_calf</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="FL_calf">
+      <pose relative_to="FL_calf_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.007009 -0.147196 0 -0 0</pose>
+        <mass>0.214</mass>
+        <inertia>
+          <ixx>0.00223964</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00223515</iyy>
+          <iyz>9.42056e-05</iyz>
+          <izz>4.93516e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="FL_calf_collision">
+        <pose>0 0 -0.1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.016 0.016 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="FL_calf_fixed_joint_lump__FL_foot_collision_1">
+        <pose>0 0.01 -0.185 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="FL_calf_visual">
+        <pose>0 0.009 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/calf.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="FL_calf_fixed_joint_lump__FL_foot_visual_1">
+        <pose>0 0.028 -0.19 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/foot.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="FR_hip_joint" type="revolute">
+      <pose relative_to="trunk">0.196 -0.049664 0 0 -0 3.14159</pose>
+      <parent>trunk</parent>
+      <child>FR_hip</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.0472</lower>
+          <upper>0.872665</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="FR_hip">
+      <pose relative_to="FR_hip_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.036 0 0 -0 0</pose>
+        <mass>0.57</mass>
+        <inertia>
+          <ixx>0.000714827</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000795577</iyy>
+          <iyz>0</iyz>
+          <izz>0.00068875</izz>
+        </inertia>
+      </inertial>
+      <collision name="FR_hip_collision">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.09 0.08 0.093</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="FR_hip_visual">
+        <pose>0 0 0 3.14159 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/hip.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="FR_thigh_joint" type="revolute">
+      <pose relative_to="FR_hip">0 0.077476 0 0 -0 3.14159</pose>
+      <parent>FR_hip</parent>
+      <child>FR_thigh</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>3.92699</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="FR_thigh">
+      <pose relative_to="FR_thigh_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.016 -0.11 0 -0 0</pose>
+        <mass>0.634</mass>
+        <inertia>
+          <ixx>0.00261821</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00265482</iyy>
+          <iyz>0</iyz>
+          <izz>0.000158764</izz>
+        </inertia>
+      </inertial>
+      <collision name="FR_thigh_collision">
+        <pose>0 0 -0.11 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.043 0.034 0.22</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="FR_thigh_visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/thigh.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="FR_calf_joint" type="revolute">
+      <pose relative_to="FR_thigh">0 0.009 -0.2115 0 -0 0</pose>
+      <parent>FR_thigh</parent>
+      <child>FR_calf</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="FR_calf">
+      <pose relative_to="FR_calf_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.007009 -0.147196 0 -0 0</pose>
+        <mass>0.214</mass>
+        <inertia>
+          <ixx>0.00223964</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00223515</iyy>
+          <iyz>9.42056e-05</iyz>
+          <izz>4.93516e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="FR_calf_collision">
+        <pose>0 0 -0.1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.016 0.016 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="FR_calf_fixed_joint_lump__FR_foot_collision_1">
+        <pose>0 0.01 -0.185 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="FR_calf_visual">
+        <pose>0 0.009 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/calf.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="FR_calf_fixed_joint_lump__FR_foot_visual_1">
+        <pose>0 0.028 -0.19 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/foot.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="RL_hip_joint" type="revolute">
+      <pose relative_to="trunk">-0.196 0.049664 0 0 -0 0</pose>
+      <parent>trunk</parent>
+      <child>RL_hip</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.872665</lower>
+          <upper>1.0472</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="RL_hip">
+      <pose relative_to="RL_hip_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 -0.036 0 0 -0 0</pose>
+        <mass>0.57</mass>
+        <inertia>
+          <ixx>0.000714827</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000795577</iyy>
+          <iyz>0</iyz>
+          <izz>0.00068875</izz>
+        </inertia>
+      </inertial>
+      <visual name="RL_hip_visual">
+        <pose>0 0 0 3.14159 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/hip.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="RL_thigh_joint" type="revolute">
+      <pose relative_to="RL_hip">0 0.077476 0 0 -0 3.14159</pose>
+      <parent>RL_hip</parent>
+      <child>RL_thigh</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>3.92699</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="RL_thigh">
+      <pose relative_to="RL_thigh_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 -0.016 -0.11 0 -0 0</pose>
+        <mass>0.634</mass>
+        <inertia>
+          <ixx>0.00261821</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00265482</iyy>
+          <iyz>0</iyz>
+          <izz>0.000158764</izz>
+        </inertia>
+      </inertial>
+      <visual name="RL_thigh_visual">
+        <pose>0 0 0 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/thigh.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="RL_calf_joint" type="revolute">
+      <pose relative_to="RL_thigh">0 0.009 -0.2115 0 -0 0</pose>
+      <parent>RL_thigh</parent>
+      <child>RL_calf</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="RL_calf">
+      <pose relative_to="RL_calf_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.007009 -0.147196 0 -0 0</pose>
+        <mass>0.214</mass>
+        <inertia>
+          <ixx>0.00223964</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00223515</iyy>
+          <iyz>9.42056e-05</iyz>
+          <izz>4.93516e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="RL_calf_collision">
+        <pose>0 0 -0.1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.016 0.016 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="RL_calf_fixed_joint_lump__RL_foot_collision_1">
+        <pose>0 0.01 -0.185 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="RL_calf_visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/calf.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="RL_calf_fixed_joint_lump__RL_foot_visual_1">
+        <pose>0 0.01 -0.21 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/foot.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="RR_hip_joint" type="revolute">
+      <pose relative_to="trunk">-0.196 -0.049664 0 -3.14159 0 0</pose>
+      <parent>trunk</parent>
+      <child>RR_hip</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.0472</lower>
+          <upper>0.872665</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="RR_hip">
+      <pose relative_to="RR_hip_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.036 0 0 -0 0</pose>
+        <mass>0.57</mass>
+        <inertia>
+          <ixx>0.000714827</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000795577</iyy>
+          <iyz>0</iyz>
+          <izz>0.00068875</izz>
+        </inertia>
+      </inertial>
+      <collision name="RR_hip_collision">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.09 0.08 0.093</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="RR_hip_visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/hip.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="RR_thigh_joint" type="revolute">
+      <pose relative_to="RR_hip">0 0.077476 0 -3.14159 0 0</pose>
+      <parent>RR_hip</parent>
+      <child>RR_thigh</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>3.92699</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="RR_thigh">
+      <pose relative_to="RR_thigh_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.016 -0.11 0 -0 0</pose>
+        <mass>0.634</mass>
+        <inertia>
+          <ixx>0.00261821</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00265482</iyy>
+          <iyz>0</iyz>
+          <izz>0.000158764</izz>
+        </inertia>
+      </inertial>
+      <collision name="RR_thigh_collision">
+        <pose>0 0 -0.11 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.043 0.034 0.22</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="RR_thigh_visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/thigh.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="RR_calf_joint" type="revolute">
+      <pose relative_to="RR_thigh">0 0.009 -0.2115 0 -0 0</pose>
+      <parent>RR_thigh</parent>
+      <child>RR_calf</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>20</effort>
+          <velocity>10.6</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="RR_calf">
+      <pose relative_to="RR_calf_joint">0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.007009 -0.147196 0 -0 0</pose>
+        <mass>0.214</mass>
+        <inertia>
+          <ixx>0.00223964</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00223515</iyy>
+          <iyz>9.42056e-05</iyz>
+          <izz>4.93516e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="RR_calf_collision">
+        <pose>0 0 -0.1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.016 0.016 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="RR_calf_fixed_joint_lump__RR_foot_collision_1">
+        <pose>0 0.01 -0.185 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="RR_calf_visual">
+        <pose>0 0.009 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/calf.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="RR_calf_fixed_joint_lump__RR_foot_visual_1">
+        <pose>0 0.028 -0.19 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://cheetah/meshes/foot.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
 </sdf>

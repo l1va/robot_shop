@@ -45,8 +45,8 @@ class UrdfToSdf:
         tree = ET.parse(path_sdf)
         root = tree.getroot()
 
-        with open(path_sdf, "r") as sdf:
-            print(*sdf.readlines(), sep='\n')
+        # with open(path_sdf, "r") as sdf:
+        #     print(*sdf.readlines(), sep='\n')
 
         for mesh in root.iter('mesh'):
             uri = mesh.find('uri')
@@ -71,7 +71,6 @@ class UrdfToSdf:
             print("done")
 
     def render(self):
-
         self.createModelConfig()
         self.createModelSdf()
 
@@ -82,8 +81,8 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         obj2dae = sys.argv[2] == 'True'
 
-    _ = UrdfToSdf(sys.argv[1], obj2dae)
-    _.render()
+    trans = UrdfToSdf(sys.argv[1], obj2dae)
+    trans.render()
 
 # examples:
 # urdf2model("walking/atlas5/atlas_v5.urdf")

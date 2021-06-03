@@ -12,6 +12,11 @@
       <name>iiwa14</name>
     </include>
     <include>
+      <uri>model://mars_rover</uri>
+      <pose>4.00 4.00 4.00 0.00 0.00 0.00</pose>
+      <name>mars_rover</name>
+    </include>
+    <include>
       <uri>model://atlas5</uri>
       <pose>1.00 1.00 1.00 0.00 0.00 0.00</pose>
       <name>atlas5</name>
@@ -20,6 +25,11 @@
       <uri>model://atlas5</uri>
       <pose>3.00 3.00 3.00 0.00 0.00 0.00</pose>
       <name>atlas5_2</name>
+    </include>
+    <include>
+      <uri>model://cheetah</uri>
+      <pose>5.00 5.00 5.00 0.00 0.00 0.00</pose>
+      <name>cheetah</name>
     </include>
     <include>
       <uri>model://a1</uri>
