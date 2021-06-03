@@ -1,7 +1,9 @@
 import os
+from posixpath import join
 import sys
 from typing import Literal
 import xml.etree.ElementTree as ET
+import re
 
 
 class UrdfToSdf:
@@ -36,6 +38,14 @@ class UrdfToSdf:
         with open(path_config, "w") as config:
             config.write(self.config_file)
 
+    def validSdfFile(self, root: ET.Element):
+        mesh = root.findall('mesh')
+
+        if len(mesh) == 0:
+            return False
+
+        return True
+
     def createModelSdf(self) -> None:
         path_sdf = self.path + "/model.sdf"
         name = os.path.basename(self.path)
@@ -45,8 +55,11 @@ class UrdfToSdf:
         tree = ET.parse(path_sdf)
         root = tree.getroot()
 
-        # with open(path_sdf, "r") as sdf:
-        #     print(*sdf.readlines(), sep='\n')
+        valid = self.validSdfFile(root)
+
+        if not valid:
+            print('Your files is corrupted')
+            return
 
         for mesh in root.iter('mesh'):
             uri = mesh.find('uri')
