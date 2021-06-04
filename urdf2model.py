@@ -1,7 +1,5 @@
 import os
-from posixpath import join
 import sys
-from typing import Literal
 import xml.etree.ElementTree as ET
 import re
 
