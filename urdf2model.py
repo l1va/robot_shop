@@ -1,7 +1,5 @@
 import os
-from posixpath import join
 import sys
-from typing import Literal
 import xml.etree.ElementTree as ET
 import re
 
@@ -68,12 +66,9 @@ class UrdfToSdf:
                 continue
 
             res = uri.text
-            print(res)
 
-            if res.startswith("./"):
-                res = res[2:]
-            if res.endswith("obj") and obj2dae:  # dirty hack
-                res = res[:-3] + "dae"
+            res = res.replace('./', '')
+            res = res.replace('obj', 'dae', obj2dae)
 
             uri.text = "model://" + name + "/" + res
 
@@ -92,11 +87,7 @@ if __name__ == "__main__":
     obj2dae = False
 
     if len(sys.argv) > 2:
-        obj2dae = sys.argv[2] == 'True'
+        obj2dae = sys.argv[2] == '--obj-to-dae'
 
     trans = UrdfToSdf(sys.argv[1], obj2dae)
     trans.render()
-
-# examples:
-# urdf2model("walking/atlas5/atlas_v5.urdf")
-# urdf2model("manipulators/iiwa14/iiwa14.urdf")
